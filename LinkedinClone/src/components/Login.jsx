@@ -19,6 +19,14 @@ function Login(props) {
                 <img src="/images/login-hero.svg" alt="" />
             </Hero>
             <Form>
+                <SigninWithGmail>
+                    <label htmlFor="Email">Email</label>
+                    <input type="email" placeholder='enter your email'/>
+                    <label htmlFor="Password">Password</label>
+                    <input type="password" placeholder='password' />
+                    <h3>Forgot password?</h3>
+                    <button>Sign in</button>
+                </SigninWithGmail>
                 <Google>
                     <img src="/images/google.svg" alt="" />
                     Signin with google
@@ -58,10 +66,10 @@ const Join = styled.a`
     text-decoration: none;
     color: rgba(0, 0, 0, 0.6);
     margin-right: 12px;
-    font-weight: 600;
+    font-weight: 500;
     &:hover{
         background: rgba(0, 0, 0, 0.08);
-        border-radius: 5px;
+        border-radius: 25px;
         color: rgba(0, 0, 0, 0.9);
     }
 `
@@ -72,7 +80,7 @@ const Signin = styled.a`
     transition-duration: 167ms;
     padding: 10px 24px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 40px;
     &:hover{
         color: rgba(0, 0, 0, 0.7);
@@ -104,10 +112,11 @@ const Hero = styled.div`
         width: 55%;
         color: #b24020;
         font-size: 56px;
-        font-weight: 200;
+        font-weight: 100;
         line-height: 70px;
         @media (max-width: 768px){
-            text-align: center;
+            font-size: 30px;
+            /* text-align: center; */
             width: 100%;
             line-height: 2;
         }
@@ -128,8 +137,53 @@ const Hero = styled.div`
     }
 `
 const Form = styled.div`
-    
+    /* margin-top: 50px; */
+    width: 408px;
+    @media (max-width: 768px) {
+        margin-top: 20px;
+    }
 `;
+const SigninWithGmail = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0;
+    gap: 10px;
+    input{
+        padding: 20px 30px;
+        border-radius: 5px;
+        border: 1px solid #696969;
+    }
+    h3{
+        color: #0a66c2;
+    }
+    button{
+        font-size: 20px;
+        padding: 10px 20px;
+        border-radius: 28px;
+        background: #0a66c2;
+        color: #fff;
+        border: none;
+    }
+`
 const Google = styled.button`
-    
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 28px;
+    height: 56px;
+    width: 100%;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0/60%),inset 0 0 0 2px rgb(0 0 0/0%),inset 0 0 0 1px rgb(0 0 0/0%);
+    vertical-align: middle;
+    z-index: 0;
+    transition-duration: 167ms;
+    font-size: 20px;
+    color: rgba(0,0,0,0.6);
+    &:hover{
+        background-color: rgba(207,207,207, 0.25);
+        color: rgba(0,0,0,0.75);
+    }
 `;
