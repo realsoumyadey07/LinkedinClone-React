@@ -103,39 +103,42 @@ const Section = styled.section`
     @media (max-width: 768px) {
         margin: auto;
         min-height: 0;
+        flex-direction: column;
+        align-items: center;
     }
 `
 const Hero = styled.div`
-    width: 100%;
-    h1{
-        padding-bottom: 0;
-        width: 55%;
-        color: #b24020;
-        font-size: 56px;
-        font-weight: 100;
-        line-height: 70px;
-        @media (max-width: 768px){
-            font-size: 30px;
-            /* text-align: center; */
-            width: 100%;
-            line-height: 2;
-        }
+  width: 100%;
+  h1 {
+    padding-bottom: 0;
+    width: 55%;
+    font-size: 56px;
+    color: #b24020;
+    font-weight: 200;
+    line-height: 70px;
+    @media (max-width: 768px) {
+      text-align: center;
+      font-size: 20px;
+      width: 100%;
+      line-height: 2;
     }
-    img{
-        /* z-index: -1; */
-        width: 700px;
-        height: 670px;
-        position: absolute;
-        bottom: -2px;
-        right: -150px;
-        @media (max-width: 768px) {
-            top: 230px;
-            width: initial;
-            position: initial;
-            height: initial;
-        }
+  }
+
+  img {
+    z-index: -1;
+    width: 700px;
+    height: 670px;
+    position: absolute;
+    bottom: -2px;
+    right: -150px;
+    @media (max-width: 768px) {
+      top: 230px;
+      width: initial;
+      position: initial;
+      height: initial;
     }
-`
+  }
+`;
 const Form = styled.div`
     /* margin-top: 50px; */
     width: 408px;
@@ -149,11 +152,13 @@ const SigninWithGmail = styled.div`
     display: flex;
     flex-direction: column;
     margin: 50px 0;
-    gap: 10px;
+    gap: 20px;
     input{
         padding: 20px 30px;
         border-radius: 5px;
         border: 1px solid #696969;
+        font-size: 20px;
+        background-color: transparent;
     }
     h3{
         color: #0a66c2;
@@ -165,6 +170,12 @@ const SigninWithGmail = styled.div`
         background: #0a66c2;
         color: #fff;
         border: none;
+        width: 100%;
+        height: 56px;
+        transition-duration: 167ms;
+        &:hover{
+            background-color: #3189f5;
+        }
     }
 `
 const Google = styled.button`
@@ -176,7 +187,8 @@ const Google = styled.button`
     border-radius: 28px;
     height: 56px;
     width: 100%;
-    box-shadow: inset 0 0 0 1px rgb(0 0 0/60%),inset 0 0 0 2px rgb(0 0 0/0%),inset 0 0 0 1px rgb(0 0 0/0%);
+    border: 1px solid #696969;
+    ${'' /* box-shadow: inset 0 0 0 1px rgb(0 0 0/60%),inset 0 0 0 2px rgb(0 0 0/0%),inset 0 0 0 1px rgb(0 0 0/0%); */}
     vertical-align: middle;
     z-index: 0;
     transition-duration: 167ms;
