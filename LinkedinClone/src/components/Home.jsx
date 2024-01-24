@@ -28,6 +28,10 @@ export default Home
 const Container = styled.div`
   padding: 52px;
   max-width: 100%;
+  @media (max-width: 768px){
+    padding: 52px 0;
+  }
+  
 `
 const Content = styled.div`
   max-width: 1128px;
