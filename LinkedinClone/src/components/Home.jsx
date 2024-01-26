@@ -27,7 +27,10 @@ export default Home
 
 const Container = styled.div`
   padding: 52px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1128px;
+  margin-left: auto;
+  margin-right: auto;
   @media (max-width: 768px){
     padding: 52px 0;
   }

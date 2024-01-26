@@ -4,6 +4,10 @@ import { HiMiniPhoto } from "react-icons/hi2";
 import { PiVideoFill } from "react-icons/pi";
 import { MdArticle } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
+import { AiOutlineLike } from "react-icons/ai";
+import { FaHandsClapping } from "react-icons/fa6";
+import { FaRegCommentDots } from "react-icons/fa";
+import { TbLocationShare } from "react-icons/tb";
 
 function Main() {
   return (
@@ -53,6 +57,34 @@ function Main() {
               <img src="/images/LinkedIn_first_post.jpg" alt="" />
             </a>
           </SharedImg>
+          <SocialCount>
+            <li>
+              <button>
+                <AiOutlineLike />
+                <FaHandsClapping />
+                <span>75</span>
+              </button>
+            </li>
+            <li>
+              <a>
+                2 comments
+              </a>
+            </li>
+          </SocialCount>
+          <SocialAction>
+          <button>
+            <AiOutlineLike />
+            <span>Like</span>
+          </button>
+          <button>
+            <FaRegCommentDots />
+            <span>Comments</span>
+          </button>
+          <button>
+            <TbLocationShare />
+            <span>Share</span>
+          </button>
+          </SocialAction>
         </Article>
       </div>
     </Container>
@@ -199,5 +231,41 @@ const SharedImg = styled.div`
     object-fit: contain;
     width: 100%;
     height: 100%;
+  }
+`
+const SocialCount = styled.ul`
+  line-height: 1.3;
+  display: flex;
+  align-items: flex-start;
+  overflow: auto;
+  margin: 0 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9e5df;
+  list-style: none;
+  li{
+    margin-right: 5px;
+    font-size: 12px;
+    button{
+      display: flex;
+    }
+  }
+`
+const SocialAction = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+  min-height: 40px;
+  padding: 4px 8px;
+  button{
+    display: inline-flex;
+    align-items: center;
+    padding: 8px;
+    color: #0a66c2;
+    @media (max-width: 768px) {
+      span{
+        margin-left: 8px;
+      }
+    }
   }
 `
