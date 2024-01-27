@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
+import LoginComp from './LoginComp';
+import SigninComp from './SigninComp';
+import { connect } from 'react-redux';
 
 function Login(props) {
+  const[login, setLogin] = useState(false);
   return (
     <Container>
         <Nav>
@@ -9,8 +13,8 @@ function Login(props) {
                 <img src="/images/login-logo.svg" alt="" />
             </a>
             <div>
-                <Join>Join now</Join>
-                <Signin>Sign in</Signin>
+                <Join onClick={()=>setLogin(false)}>Join now</Join>
+                <Signin onClick={()=>setLogin(true)}>Sign in</Signin>
             </div>
         </Nav>
         <Section>
@@ -19,14 +23,10 @@ function Login(props) {
                 <img src="/images/login-hero.svg" alt="" />
             </Hero>
             <Form>
-                <SigninWithGmail>
-                    <label htmlFor="Email">Email</label>
-                    <input type="email" placeholder='enter your email'/>
-                    <label htmlFor="Password">Password</label>
-                    <input type="password" placeholder='password' />
-                    <h3>Forgot password?</h3>
-                    <button>Sign in</button>
-                </SigninWithGmail>
+                {
+                  login?<><LoginComp/><h5 onClick={()=>setLogin(false)}>Signin</h5></>:<><SigninComp/><h5 onClick={()=>setLogin(true)}>Already have an account?</h5></>
+                }
+                
                 <Google>
                     <img src="/images/google.svg" alt="" />
                     Signin with google
@@ -37,7 +37,7 @@ function Login(props) {
   )
 }
 
-export default Login;
+// export default Login;
 
 const Container = styled.div`
     padding: 0;
@@ -67,6 +67,7 @@ const Join = styled.a`
     color: rgba(0, 0, 0, 0.6);
     margin-right: 12px;
     font-weight: 500;
+    cursor: pointer;
     &:hover{
         background: rgba(0, 0, 0, 0.08);
         border-radius: 25px;
@@ -74,6 +75,7 @@ const Join = styled.a`
     }
 `
 const Signin = styled.a`
+    cursor: pointer;
     box-shadow: inset 0 0 0 1px #0a66c2;
     color:#0a66c2;
     border-radius: 24px;
@@ -142,45 +144,21 @@ const Hero = styled.div`
 const Form = styled.div`
     /* margin-top: 50px; */
     width: 408px;
+    h5{
+      color: #0a66c2;
+      cursor: pointer;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
     @media (max-width: 768px) {
         margin-top: 20px;
     }
 `;
-const SigninWithGmail = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 50px 0;
-    gap: 20px;
-    input{
-        padding: 20px 30px;
-        border-radius: 5px;
-        border: 1px solid #696969;
-        font-size: 20px;
-        background-color: transparent;
-    }
-    h3{
-        color: #0a66c2;
-    }
-    button{
-        font-size: 20px;
-        padding: 10px 20px;
-        border-radius: 28px;
-        background: #0a66c2;
-        color: #fff;
-        border: none;
-        width: 100%;
-        height: 56px;
-        transition-duration: 167ms;
-        &:hover{
-            background-color: #3189f5;
-        }
-    }
-`
 const Google = styled.button`
     display: flex;
     align-items: center;
+    margin-top: 10px;
     gap: 7px;
     justify-content: center;
     background-color: #fff;
@@ -199,3 +177,9 @@ const Google = styled.button`
         color: rgba(0,0,0,0.75);
     }
 `;
+
+const mapStateToProps = (state)=>{
+  return {};
+}
+const mapDispatchToProps =(dispatch)=>({});
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
